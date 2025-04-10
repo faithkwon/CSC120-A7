@@ -74,7 +74,10 @@ public class Cafe extends Building implements CafeRequirements {
         this.nCups += nCups;
     }
 
-    // toString method for Cafe
+    /**
+     * Cafe class-specific toString
+     * @return nicely formatted summary of Cafe
+     */
     public String toString() {
         return this.getName() + " has " + nCoffeeOunces + "oz of coffee, " + nSugarPackets + " sugar packets, " + nCreams + " creams, and " + nCups + " cups";
     }

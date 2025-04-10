@@ -50,8 +50,12 @@ public class House extends Building implements HouseRequirements {
    * @return student that is moving out
    */
   public Student moveOut(Student s) {
-    residents.remove(s);
-    return s;
+    if (isResident(s)) {
+      residents.remove(s);
+      return s;
+    } else {
+      throw new RuntimeException("Student " + s + " is not a resident of " + this.name + ". Please try again with a resident.");
+    }
   }
   
   /**

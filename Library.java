@@ -28,6 +28,7 @@ public class Library extends Building implements LibraryRequirements {
   /**
    * Removes a title from the collection
    * @param title name of the book
+   * @return name of the book
    */
   public String removeTitle(String title) {
     collection.remove(title);
@@ -39,7 +40,11 @@ public class Library extends Building implements LibraryRequirements {
    * @param title name of the book
    */
   public void checkOut(String title) {
-    collection.replace(title, true, false);
+    if (isAvailable(title)) {
+      collection.replace(title, true, false);
+    } else {
+      throw new RuntimeException(title + " is not in " + this.name + "'s collection. Please try again with a title in this library.");
+    }
   }
 
   /**
